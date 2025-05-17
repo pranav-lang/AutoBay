@@ -1,0 +1,17 @@
+body {
+    background: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d2') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .center-card {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  }
+  

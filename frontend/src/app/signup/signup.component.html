@@ -1,0 +1,34 @@
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="center-card text-center">
+      <h2 class="text-primary mb-2">ParkSmart</h2>
+      <p class="mb-3 text-muted">Create a new account</p>
+  
+      <form (ngSubmit)="register()">
+        <div class="mb-2 text-start">
+          <label class="form-label">Name</label>
+          <input class="form-control" [(ngModel)]="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-2 text-start">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-2 text-start">
+          <label class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" [(ngModel)]="mobile" name="mobile" placeholder="Enter mobile number" required>
+        </div>
+        <div class="mb-2 text-start">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Create password" required>
+        </div>
+        <div class="mb-4 text-start">
+          <label class="form-label">Vehicle ID</label>
+          <input type="text" class="form-control" [(ngModel)]="vehicleId" name="vehicleId" placeholder="Enter vehicle ID" required>
+        </div>
+  
+        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+      </form>
+  
+      <p class="mt-4 text-muted small">Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </div>
+  
