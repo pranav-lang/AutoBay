@@ -1,1 +1,70 @@
-<p>parking works!</p>
+<div class="parking-container">
+  <!-- Zone Selection Panel -->
+  <div class="zone-panel">
+    <h2>Select Parking Zone</h2>
+    <div class="zone-buttons">
+      <button *ngFor="let zone of zones" (click)="selectZone(zone)" [class.selected]="zone === selectedZone">
+        {{ zone }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer" *ngIf="showTimer">
+    <span class="material-icons">timer</span>
+    <span>{{ remainingTime }}</span>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div><span class="slot available"></span> Available</div>
+    <div><span class="slot occupied"></span> Occupied</div>
+    <div><span class="slot reserved"></span> Reserved</div>
+    <div><span class="slot selected"></span> Selected</div>
+  </div>
+
+  <!-- Parking Grid -->
+  <div class="parking-grid">
+    <div
+      class="slot"
+      *ngFor="let slot of parkingSlots"
+      [ngClass]="slot.status"
+      (click)="selectSlot(slot)"
+    >
+      {{ slot.label }}
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <h3>Book Slot - {{ selectedSlot?.label }}</h3>
+      <form (ngSubmit)="bookSlot()" #bookingForm="ngForm">
+        <label for="vehicleId">Vehicle ID / Employee ID</label>
+        <input
+          id="vehicleId"
+          name="vehicleId"
+          [(ngModel)]="bookingData.vehicleId"
+          required
+        />
+
+        <label for="vehicleType">Select Vehicle</label>
+        <select
+          id="vehicleType"
+          name="vehicleType"
+          [(ngModel)]="bookingData.vehicleType"
+          required
+        >
+          <option value="car">Car</option>
+          <option value="bike">Bike</option>
+          <option value="scooter">Scooter</option>
+        </select>
+
+        <div class="modal-actions">
+          <button type="submit" [disabled]="!bookingForm.valid">Confirm</button>
+          <button type="button" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

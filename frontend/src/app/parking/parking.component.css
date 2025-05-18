@@ -1,0 +1,143 @@
+.parking-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.zone-panel {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  .zone-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background-color: #1976d2;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &.selected {
+        background-color: #1565c0;
+      }
+
+      &:hover {
+        background-color: #0d47a1;
+      }
+    }
+  }
+}
+
+.timer {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #d32f2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .slot {
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+    }
+
+    .available { background-color: #66bb6a; }
+    .occupied { background-color: #ef5350; }
+    .reserved { background-color: #ffb300; }
+    .selected { background-color: #42a5f5; }
+  }
+}
+
+.parking-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
+
+  .slot {
+    height: 60px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &.available { background-color: #66bb6a; }
+    &.occupied { background-color: #ef5350; cursor: not-allowed; }
+    &.reserved { background-color: #ffb300; cursor: not-allowed; }
+    &.selected { background-color: #42a5f5; }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    input, select {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:first-child {
+          background-color: #388e3c;
+          color: white;
+        }
+
+        &:last-child {
+          background-color: #b0bec5;
+        }
+      }
+    }
+  }
+}
