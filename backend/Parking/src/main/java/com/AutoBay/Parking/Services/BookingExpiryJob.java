@@ -23,10 +23,10 @@ public class BookingExpiryJob {
 	private ParkingSlotRepository parkingSlotRepo;
 	
 	@Transactional
-	@Scheduled(fixedRate = 6000)
+	@Scheduled(fixedRate = 60000)
 	public void expireUnconfirmedBookings() {
 		
-		LocalDateTime cutOff = LocalDateTime.now().minusSeconds(20);
+		LocalDateTime cutOff = LocalDateTime.now().minusMinutes(5);
 		List<ParkingBooking> expiredBookings = parkingRepo.findByBookingConfirmationFalseAndEntryTimeBefore(cutOff);
 		
 		for(ParkingBooking booking : expiredBookings) {
