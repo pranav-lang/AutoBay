@@ -1,0 +1,5 @@
+MICROSERVICES PORTS
+
+Parking : 8080
+Gateway : 9095
+Eureka : 8095
