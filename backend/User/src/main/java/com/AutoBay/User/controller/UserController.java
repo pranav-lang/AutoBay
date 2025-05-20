@@ -16,10 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/register", produces = "application/json")
-    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request){
-        return new ResponseEntity<>(userService.registerUser(request), HttpStatus.CREATED);
-    }
+
 
     @GetMapping("/{employeeId}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable int employeeId){
